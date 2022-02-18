@@ -18,7 +18,7 @@ Edit the terraform.tfvars file according to the following table
 | Variable name | Required | Description | Type | Allowed values | Default 
 | --------------- | :-------: | ----------- | ------------- | ------------------ | ----------------- |
 | globals | Yes | Global variables for the resource deployment: deployment_code, owner_tag | String | deployment_code is limited to a length of 4 characters | - | 
-| region_code | Yes | Specifies the Azure region code where resources will be deployed | String | "wsus","eus1","eus2","cnus1" | - | 
+| region_code | Yes | Specifies the Azure region code where resources will be deployed | String | "wsus","eus1","eus2","cnus" | - | 
 | az_sequential  | No | Specifies the correlative for the deployment of the resource | String | Examples: "01", "02", ... | "01" | 
 | az_rg_name   | Yes | Specifies the resource group name where resources will be deployed | String | Examples: "test_resource_group" | - |
 | vnet_address_space  | Yes | Specifies the address space for the vnet | String | Examples: "10.0.0.0/16", "10.1.0.0/16", ... | - |
@@ -26,5 +26,5 @@ Edit the terraform.tfvars file according to the following table
 | az_stg_containers  | Yes | Specifies the name of containers for the storage account | List(String) | Examples: ["demo01", "demo02"] | - |
 | whitelisted_ips  | Yes | Specifies the list of safe ip | List(String) | Examples: ["1.1.1.1"] | - |
 
-### **Step 02**
+### **Step 03**
 From a Linux console, execute the "terraform apply" command
