@@ -31,7 +31,7 @@ variable "az_sequential" {
 #Private variables
 variable "vnet_address_space" {
   description = "Specifies the address space for the vnet"
-  type        = list(string)
+  type        = string
 }
 
 variable "snet_address_prefix" {

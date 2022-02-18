@@ -8,7 +8,7 @@ variable "globals" {
 
   validation {
     condition     = length(var.globals.deployment_code) == 4
-    error_message = "Application code must be a 4 letters string."
+    error_message = "Deployment code is limited to a length of 4 characters."
   }
 }
 
@@ -18,12 +18,12 @@ variable "az_rg_name" {
 }
 
 variable "region_code" {
-  description = "Specifies the region code for the resource deployment"
+  description = "Specifies the Azure region code where resources will be deployed"
   type        = string
 }
 
 variable "az_sequential" {
-  description = "Specifies the region code for the resource deployment"
+  description = "Specifies the correlative for the deployment of the resource"
   type        = string
   default     = "01"
 }
@@ -31,12 +31,7 @@ variable "az_sequential" {
 #Private variables
 variable "vnet_address_space" {
   description = "Specifies the address space for the vnet"
-  type        = list(string)
-
-  validation {
-    condition     = length(var.vnet_address_space) == 1
-    error_message = "Vnet must have a 1 address space."
-  }
+  type        = string  
 }
 
 variable "snet_address_prefix" {

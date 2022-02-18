@@ -50,4 +50,15 @@ module "azStorage" {
   whitelisted_ips     = var.whitelisted_ips
 }
 
-/* Move tfState to Storage */
+#Move tfState to Storage
+resource "null_resource" "movetfstate" {
+  provisioner "local-exec" {
+    command = "chmod +x ${path.module}/scripts/uploadTfstate.sh && ${path.module}/scripts/uploadTfstate.sh"
+    environment = {
+      storageAccountName  = module.azStorage.stgacc_name
+      accountPrimaryAccessKey  = module.azStorage.primaryAccessKey
+      accountContainer = module.azStorage.accountContainer[0]
+      path = path.module
+    }
+  }
+}
